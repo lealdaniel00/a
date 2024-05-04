@@ -5,5 +5,7 @@ public class HolaMundo{
 		System.out.println("HOLA mundo, mi edad es: "+edad);
 		System.out.println(edad+edad);
 		System.out.println(edad+""+edad);
+		Persona luis = new Persona();
+		luis.caminar();
 	}
 }
