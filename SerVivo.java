@@ -3,11 +3,17 @@ public abstract class SerVivo{
 	private char genero;
 	private String especie;
 	private String nombre;
+	SerVivo(){
+		edad=-20;
+	}
 	SerVivo(int edad, char genero, String especie, String nombre){
 		this.edad=edad;
 		this.genero=genero;
 		this.especie=especie;
 		this.nombre=nombre;	
+	}
+	public void reproduccion(){
+		System.out.println("Los seres vivos se estan reproduciendo");
 	}
 	public abstract void respirar();
 	public int getEdad(){
