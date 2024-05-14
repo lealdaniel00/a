@@ -1,8 +1,8 @@
-import java.io.*;
+import java.io.IOException;
 
-public class PrincipalServidor{
-	public static void main(String args[])throws IOException{
-		Servidor universidad = new Servidor();
-		universidad.iniciarServidor();
-	}
+public class PrincipalServidor {
+    public static void main(String[] args) throws IOException {
+        Servidor prueba = new Servidor();
+        prueba.iniciarServidor();
+    }
 }

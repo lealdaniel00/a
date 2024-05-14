@@ -53,7 +53,7 @@ public class Hilo1 extends JFrame implements Runnable{
             int a = 1;
             while(a>0){
                 nuevo.mov();
-                Thread.sleep(50);
+                Thread.sleep(500);
                 nuevo.repaint();
             }
 
