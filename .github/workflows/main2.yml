@@ -21,7 +21,7 @@ jobs:
         java-version: '11'
 
     - name: Compile Java
-      run: javac HolaMundo.java
+      run: javac HolaMundo.java Pez.java Persona.java
 
     - name: Run Java
       run: java HolaMundo
