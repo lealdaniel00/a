@@ -20,8 +20,29 @@ jobs:
         distribution: 'temurin'
         java-version: '11'
 
+    - name: Install SpotBugs
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y spotbugs
+    
+    - name: Clean previous builds
+      run: find . -name "*.class" -type f -delete
+      
     - name: Compile Java
       run: javac HolaMundo.java Pez.java Persona.java
 
+    - name: Run SpotBugs
+      run: spotbugs -textui -effort:max -high Pez.class
+
     - name: Run Java
       run: java HolaMundo
+
+    - name: Install OWASP Dependency-Check
+      run: |
+        sudo apt-get install -y curl unzip
+        curl -L https://github.com/jeremylong/DependencyCheck/releases/download/v6.1.6/dependency-check-6.1.6-release.zip -o dependency-check.zip
+        unzip dependency-check.zip -d dependency-check
+        sudo mv dependency-check /usr/local/bin/dependency-check
+
+    - name: Run OWASP Dependency-Check
+      run: /usr/local/bin/dependency-check/bin/dependency-check.sh --project Pez --scan .
