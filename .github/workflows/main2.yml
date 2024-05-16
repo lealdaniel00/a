@@ -43,10 +43,10 @@ jobs:
     - name: Download and Install OWASP Dependency-Check
       run: |
         curl -L https://github.com/jeremylong/DependencyCheck/releases/download/v6.1.6/dependency-check-6.1.6-release.zip -o dependency-check.zip
-        unzip dependency-check.zip -d dependency-check
+        unzip dependency-check.zip
         sudo mv dependency-check /opt/dependency-check
-        sudo ln -s /opt/dependency-check/bin/dependency-check.sh /usr/local/bin/dependency-check.sh
         sudo chmod +x /opt/dependency-check/bin/dependency-check.sh
+        sudo ln -s /opt/dependency-check/bin/dependency-check.sh /usr/local/bin/dependency-check.sh
 
     - name: Run OWASP Dependency-Check
       run: dependency-check.sh --project Pez --scan .
