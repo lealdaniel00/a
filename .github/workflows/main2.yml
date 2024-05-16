@@ -20,10 +20,12 @@ jobs:
         distribution: 'temurin'
         java-version: '11'
 
-    - name: Install SpotBugs
+    - name: Download and Install SpotBugs
       run: |
-        sudo apt-get update
-        sudo apt-get install -y spotbugs
+        curl -L https://github.com/spotbugs/spotbugs/releases/download/4.5.3/spotbugs-4.5.3.tgz -o spotbugs.tgz
+        tar -xzf spotbugs.tgz
+        sudo mv spotbugs-4.5.3 /opt/spotbugs
+        sudo ln -s /opt/spotbugs/bin/spotbugs /usr/local/bin/spotbugs
     
     - name: Clean previous builds
       run: find . -name "*.class" -type f -delete
