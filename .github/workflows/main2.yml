@@ -50,3 +50,9 @@ jobs:
 
     - name: Run OWASP Dependency-Check
       run: dependency-check.sh --project Pez --scan . --disableAssembly
+
+    - name: Build Docker image
+      run: docker build -t java-app .
+
+    - name: Run Docker container
+      run: docker run java-app
