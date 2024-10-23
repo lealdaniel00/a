@@ -10,5 +10,6 @@ public class HolaMundo{
 		luis.reproduccion();
 		System.out.println(luis.getEdad());
 		System.out.println(luis.getEspecie());		
+		
 	}
 }
